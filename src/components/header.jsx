@@ -5,10 +5,13 @@ class Header extends Component {
 
      }
     render() { 
+        let idField=<div></div>;
+        if(this.props.id !== null) idField = <h3 className = "text-center offset-md-1">ID:{this.props.id}</h3> 
         return ( 
-            <div className = "container-fluid">
-                <div className = "row justify-content-center bg-primary mb-3">
-                    <h1 className = "text-center mb-4 mt-3">QuickList</h1>
+            <div className = "container-fluid align-items-center justify-content-center">
+                <div className = "row justify-content-center align-items-center bg-primary">
+                    <h1 className = "text-center">QuickList</h1>
+                    {idField}
                 </div>
             </div>
          );
