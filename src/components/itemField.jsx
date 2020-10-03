@@ -11,7 +11,7 @@ class ItemField extends React.Component {
             <input type= 'number' className = 'form-control input-sm text-center' value = {this.props.quantity} onChange = {(e)=>this.props.updateQuantity(e,this.props.id)} />
           </Col>
           <Col>
-            <input className = "form-control" value = {this.props.item} onChange = {(e)=>this.props.updateText(e,this.props.id)}/>
+            <input className = "form-control"  value = {this.props.item} onChange = {(e)=>this.props.updateText(e,this.props.id)}/>
           </Col>
           <Col xs= "auto">
             <Button variant="outline-danger" onClick = {()=>this.props.delButton(this.props.id)}>X</Button>

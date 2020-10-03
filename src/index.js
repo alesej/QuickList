@@ -92,7 +92,7 @@ import axios from 'axios';
 
       render() { 
         let list;
-        if(this.state.id !== null) list = <List id={this.state.id} data={this.state.data}/>; 
+        if(this.state.id !== null) list = <List key = {this.state.data} id={this.state.id} data={this.state.data}/>; 
 
           return ( 
             <div>

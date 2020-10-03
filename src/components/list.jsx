@@ -19,13 +19,19 @@ class List extends Component {
          this.saveList = this.saveList.bind(this);
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps){
         if(this.state.id !== this.props.id){
         this.setState({
             id: this.props.id,
             items: this.props.data.items
         })
         }
+        if(prevProps.data !== this.props.data){
+            this.setState({
+                items: this.props.data.items
+            })
+        }
+
     }
 
     addItem(event){
@@ -76,15 +82,16 @@ class List extends Component {
 
     deleteList(){
         let response;
-        axios.get('http://localhost:5000/' + this.state.id)
+        axios.delete('http://localhost:5000/' + this.state.id)
         .then((res) =>{response = res.data;})
         .then(() => {
-            if(response === null){
-                axios.post('http://localhost:5000/', this.state);
-        }
-            else{
-                axios.put('http://localhost:5000/' + this.state.id +'/update', this.state)
-    }});
+            console.log(response);
+            this.setState({items: [{
+                quantity: 1,
+                item: '',
+                id: 0
+              }]})
+        });
     }
 
     
