@@ -97,8 +97,8 @@ class List extends Component {
     
     render() { 
         return ( 
-            <Container className = 'container-fluid'>
-                <Row className = "justify-content-center">  
+            <Container bg= "light" className = 'container-fluid'>
+                <Row className = "justify-content-center mt-2">  
                     <h3>Items:</h3>
                 </Row>
                     {this.state.items.map( item => (

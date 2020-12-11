@@ -96,17 +96,7 @@ import axios from 'axios';
 
           return ( 
             <div>
-                <Header id={this.state.id}/>
-                <Row className="justify-content-center text-center">
-                  <Col className= 'justify-content-center'>
-                    <button type="button" className="btn btn-primary btn-lg justify-content-center my-3" 
-                    onClick={() => { if (this.state.new === null || window.confirm('Are you sure you wish to create a new list?')) this.newList()}}>New List</button>
-                  </Col>
-                  <Form onSubmit={(e) => { if (this.state.new === null || window.confirm('Are you sure you wish to load this list?')) this.loadList(e)}} className='input-group col'>
-                    <input max= '9999' required pattern = '\d*' maxLength='4' type = 'text' className = "form-control my-auto offset-md-2 col-sm-2" placeholder = 'Enter List ID Here' onChange = {this.handleID}/>
-                    <input type="submit" className="btn btn-primary btn-lg my-3 mx-1" value = "Load List"/>
-                  </Form>
-                </Row>
+                <Header id={this.state.id} newList = {this.newList} loadList = {this.loadList} handleID = {this.handleID}/>
                 {list}
             </div>
            );
