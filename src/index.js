@@ -92,8 +92,8 @@ import axios from 'axios';
 
       render() { 
         let list;
+        if(this.state.id === null) this.newList();
         if(this.state.id !== null) list = <List key = {this.state.data} id={this.state.id} data={this.state.data}/>; 
-
           return ( 
             <div>
                 <Header id={this.state.id} newList = {this.newList} loadList = {this.loadList} handleID = {this.handleID}/>

@@ -1,0 +1,10 @@
+.navbar-brand {
+    font-size: 2.3rem;
+    color: #303030 !important;
+    padding: 0px;
+    margin: 0%;
+}
+.navbar {
+    background-color: #8b9bc7;
+    color: #303030 !important;
+}

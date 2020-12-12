@@ -7,3 +7,11 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.div{
+    background-color: #baad99;
+}
+
+body {
+    color: #303030 !important;
+}
