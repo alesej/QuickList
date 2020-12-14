@@ -35,12 +35,17 @@ class List extends Component {
     }
 
     addItem(event){
+        let currentFocus = document.activeElement;
         let newItems = [...this.state.items];
         let newID = (newItems.length === 0 ? 0 : newItems[newItems.length-1].id+1)
         newItems.push({quantity: 1, item: '', id: newID})
         this.setState({
            items: newItems 
         })
+        //let currentFocus = document.activeElement;
+        console.log(currentFocus);
+
+
     }
 
     deleteItem(deleteID){
@@ -98,33 +103,35 @@ class List extends Component {
     render() { 
         return ( 
             <Container bg= "light" className = 'container-fluid'>
-                <Row className = "justify-content-center mt-2">  
-                    <h3>Items:</h3>
-                </Row>
                     {this.state.items.map( item => (
-                        <Row key={item.id} className = "justify-content-center">
-                        <Col>
-                            <ItemField  
-                            item={item.item} 
-                            quantity={item.quantity} 
-                            id = {item.id} 
-                            delButton={this.deleteItem} 
-                            updateQuantity = {this.updateQuantity}
-                            updateText = {this.updateText}
-                            />
-                        </Col>
+                        <Row className = "mt-1">
+                            <Col>
+                                <ItemField  
+                                item={item.item} 
+                                quantity={item.quantity} 
+                                id = {item.id} 
+                                delButton={this.deleteItem} 
+                                updateQuantity = {this.updateQuantity}
+                                updateText = {this.updateText}
+                                addItem = {this.addItem}
+                                />
+                            </Col>
                         </Row>
                     ))}
                 
                     
-                <Form.Row className = 'justify-content-center'>
-                    <Col className = "mb-1">
-                        <Button variant="outline-primary" onClick={this.addItem.bind(this)} block>New Item</Button>
+                <Row className = 'justify-content-center'>
+                    <Col>
+                        <Button variant="primary my-1" onClick={this.addItem.bind(this)} block>New Item</Button>
                     </Col>
-                </Form.Row>
+                </Row>
                 <Row className = "justify-content-between">
-                    <Button className = 'btn-danger col-auto mx-3' onClick={() => this.deleteList()}>Delete List</Button>
-                    <Button className = 'btn-success col-auto mx-3' onClick={() => this.saveList()}>Save List</Button>
+                    <Col className='mr-auto col-auto'>
+                        <Button className = 'btn-danger' onClick={() => this.deleteList()}>Delete List</Button>
+                    </Col>
+                    <Col className = ' col-auto'>
+                        <Button className = 'btn-success justify-right' onClick={() => this.saveList()}>Save List</Button>
+                    </Col>
                 </Row>
             </Container>
          );

@@ -9,7 +9,7 @@ class Header extends Component {
         let idField=<div></div>;
         if(this.props.id !== null) idField = <h4 className = "my-0 mx-2">ID:{this.props.id}</h4> 
         return ( 
-            <Navbar className = "justify-content-between">
+            <Navbar className = "justify-content-between mb-1">
                 <Navbar.Brand href ="#">QuickList</Navbar.Brand>
                 <Form className = "navbar-right" inline onSubmit={(e) => { if (this.state.new === null || window.confirm('Are you sure you wish to load this list?')) this.props.loadList(e)}}>
                 {idField}
